@@ -86,8 +86,7 @@ rails db:migrate:status
 👤 **JONATHAN**
 
 - GitHub: [@kayembajonathan](https://github.com/KAYEMBAJONATHAN)
-- LinkedIn: [@kayembajonathan](https://www.linkedin.com/in/jonathan-kayembb56247236/)
-- Twitter: [@JonathanKa97287](@JonathanKa97287)
+- LinkedIn: [@kayembajonathan](https://www.linkedin.com/in/cimena-kayemba/)
 
 <!-- FUTURE FEATURES -->
 
@@ -120,6 +119,7 @@ I would like to thank Microverse for this project
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./LICENSE) licensed.
+This project is [MIT](./MIT.md) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+/p>
