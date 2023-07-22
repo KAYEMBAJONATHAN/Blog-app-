@@ -48,7 +48,7 @@ ActiveRecord::Schema[7.0].define(version: 202307211051115) do
     t.string "name"
     t.text "photo"
     t.text "bio"
-    t.integer "post_counter"
+    t.integer "posts_counter"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_users_on_name"
