@@ -1,5 +1,9 @@
 class PostsController < ApplicationController
+  def index
+    # Placeholder
+  end
+
   def show
-    # Post
+    # Placeholder
   end
 end
