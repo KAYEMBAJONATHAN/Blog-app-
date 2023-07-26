@@ -1,1 +1,10 @@
-<h1>Single post page</h1>
+<h1>Blog App</h1>
+
+<article class='no-posts'>
+  <div class='post-title' >
+  <h1><%=@post.title%> by <%=@post.author.name%><h1>
+  <div class='post-count-best'>Comments: <%=@post.comments_counter%>, Likes:<%=@post.likes_counter%></div>
+  </div>
+  <div><%=@post.text%></div>
+  <%= render 'partials/comment', comments: @post.return_five_most_recent_comments %>
+</article>
