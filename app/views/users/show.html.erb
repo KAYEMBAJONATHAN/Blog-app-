@@ -1,17 +1,22 @@
-<h1>Blog App</h1>
+<h1>User Details</h1>
+<%= render 'partials/user', user: @user %>
 
-<%= render 'partials/user', user: @user%>
-<div class='bio'><%=@user.bio%></div>
-<ul class='user-post-list'>
-<%if @user.return_three_most_recent_posts.empty?%>
-<p class='no-posts'>No posts</p>
-<%else%>
-<%@user.return_three_most_recent_posts.each do |post| %>
-<li>
-<%=render 'partials/post', post: post%>
-</li>
-<%end%>
-<%end%>
-</ul>
-<div class='content-view-all-post-btn'>
-<%= link_to "View all posts", user_posts_path(@user), class: 'view-all-post-btn' %></div>
+<div class="bio-card container">
+  <h3 class="bio-card-header">Bio</h3>
+  <p><%= @user.bio %> </p>
+</div>
+
+<% @recent_posts.each_with_index do |post, index| %>
+  <a href="/users/<%= @user.id %>/posts/<%= post.id %>">
+    <div class="container recent_post">
+      <p class="post-num">Post #<%= index + 1 %></p>
+      <p class="post-title"><%= post.title %></p>
+      <small class="counters">Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></small>
+    </div>
+  </a>
+
+<% end %>
+
+<div class="btn-div">
+  <a href="/users/<%= @user.id %>/posts" class="see-all-posts">See all posts</a>
+</div>
