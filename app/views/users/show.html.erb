@@ -6,17 +6,18 @@
   <p><%= @user.bio %> </p>
 </div>
 
-<% @recent_posts.each_with_index do |post, index| %>
-  <a href="/users/<%= @user.id %>/posts/<%= post.id %>">
-  <div class="detailed-post-box container">
-  <div class="username-and-counters">
-    <p class="dp-username">Post #1 by <%= @user.name %></p>
-    <small class="dp-counters">Comments: <%= @post.comments.length %>, Likes: <%= @post.likes.length %></small>
-  </div>
-  </a>
-
-<% end %>
+<% @post.each_with_index do |post, index| %>
+    # <a href="/users/<%= @user.id %>/posts/<%= post.id %>">
+    #   <div class="detailed-post-box container">
+    #     <div class="username-and-counters">
+    #       <p class="dp-username">Post #<%= index + 1 %> by <%= @user.name %></p>
+    #       <small class="dp-counters">Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></small>
+    #     </div>
+    #   </div>
+    # </a>
+    <%= render 'partials/post', post: post %>
+  <% end %>  
 
 <div class="btn-div">
-  <a href="/users/<%= @user.id %>/posts" class="see-all-posts">See all posts</a>
+  <a href="<%= @user.id %>/posts" class="see-all-posts">See all posts</a>
 </div>

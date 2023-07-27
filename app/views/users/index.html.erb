@@ -2,7 +2,7 @@
   <% if @users.present? %>
     <% @users.each do |user| %>
       <li>
-        <%= render 'partials/user', user: user %>
+        <a href='users/<%= user.id %>'><%= render 'partials/user', user: user %></a>
       </li>
     <% end %>
   <% else %>
