@@ -8,13 +8,6 @@
 
 <% @post.each_with_index do |post, index| %>
     # <a href="/users/<%= @user.id %>/posts/<%= post.id %>">
-    #   <div class="detailed-post-box container">
-    #     <div class="username-and-counters">
-    #       <p class="dp-username">Post #<%= index + 1 %> by <%= @user.name %></p>
-    #       <small class="dp-counters">Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></small>
-    #     </div>
-    #   </div>
-    # </a>
     <%= render 'partials/post', post: post %>
   <% end %>  
 
