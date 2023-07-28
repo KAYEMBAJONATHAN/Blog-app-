@@ -1,23 +1,25 @@
-class PostsController < ActionController::Base
-  def index; end
+ class LikesController < ApplicationController
+  before_action :find_post
 
-  def show; end
+    def create
+      @like = @post.likes.build(user_id: current_user.id)
+  
+      if @like.save
+        redirect_to @post, notice: 'Post liked!'
+      else
+        redirect_to @post, alert: 'Unable to like the post.'
+      end
+    end
+  
+    def destroy
+      like = @post.likes.find_by(user_id: current_user.id)
+      like.destroy if like
+      redirect_to @post, notice: 'Post unliked!'
+    end
+  
+    private
 
-  def create
-    @post = Post.new(post_params)
-    @post.save
-    redirect_to posts_path
+    def find_post
+      @post = Post.find(params[:post_id])
+    end
   end
-
-  def destroy
-    @post = Post.find(params[:id])
-    @post.destroy
-    redirect_to posts_path
-  end
-
-  private
-
-  def post_params
-    paramst.require(:post).permit(:author_id)
-  end
-end

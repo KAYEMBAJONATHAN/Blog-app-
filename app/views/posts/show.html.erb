@@ -5,6 +5,10 @@
     <small class="dp-counters">Comments: <%= @post.comments.length %>, Likes: <%= @post.likes.length %></small>
   </div>
 
+  <%= form_with model: @like, url: post_likes_path(@post), method: :post do |form| %>
+    <%= form.submit "Like" %>
+  <% end %>
+
   <p class="dp-text"><%= @post.text %></p>
 
   <div class="dp-comments comment-card">

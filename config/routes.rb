@@ -2,8 +2,11 @@
 
 Rails.application.routes.draw do
   root 'users#index'
-  get '/users/index', to: 'users#index', as: 'users_index'
-  resources :users, only: [:index, :show] do
-  resources :posts, only: [:index, :show]
+
+  resources :users, only: [:show] do
+    resources :posts, only: [:index, :show, :new, :create] do
+      resources :comments, only: [:new, :create]
+      resource :like, only: [:create, :destroy], controller: 'likes'
+    end
   end
 end
