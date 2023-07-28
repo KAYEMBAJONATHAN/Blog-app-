@@ -1,1 +1,16 @@
-<h1>Details of the Selected post by User</h1>
+<h1>User Details</h1>
+<%= render 'partials/user', user: @user %>
+
+<div class="bio-card container">
+  <h3 class="bio-card-header">Bio</h3>
+  <p><%= @user.bio %> </p>
+</div>
+
+<% @post.each_with_index do |post, index| %>
+    # <a href="/users/<%= @user.id %>/posts/<%= post.id %>">
+    <%= render 'partials/post', post: post %>
+  <% end %>  
+
+<div class="btn-div">
+  <a href="<%= @user.id %>/posts" class="see-all-posts">See all posts</a>
+</div>
